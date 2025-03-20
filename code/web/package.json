@@ -6,7 +6,7 @@
   "scripts": {
     "setup": "npm install",
     "start": "npm run build:client && npm run start:server",
-    "build:client": "webpack -d && babel-node src/setup/server/pwa.js",
+    "build:client": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode development && babel-node src/setup/server/pwa.js",
     "start:server": "nodemon --exec babel-node -- src/index.js",
     "start:prod": "npm run build:client:prod && npm run build:server:prod && npm run start:server:prod",
     "build:client:prod": "webpack -p",
@@ -24,6 +24,7 @@
     "@babel/plugin-transform-runtime": "7.11.5",
     "@babel/preset-env": "7.11.5",
     "@babel/preset-react": "7.10.4",
+    "@babel/register": "^7.25.9",
     "@storybook/addons": "^6.0.21",
     "@storybook/react": "^6.0.21",
     "babel-loader": "8.1.0",
